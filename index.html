@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn web development fundamentals with our comprehensive HTML and CSS course"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+               frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;
+               script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com;
+               img-src 'self' data: https://i.ytimg.com https://www.youtube.com;
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+               font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+               connect-src 'self' https://www.youtube.com"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+    />
+    <title>Web Development Fundamentals</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Course Overview Section -->
+      <header class="course-header">
+        <div class="course-info">
+          <h1>Web Development Fundamentals</h1>
+          <div class="course-meta">
+            <span class="level"
+              ><i class="fas fa-signal"></i> Beginner Friendly</span
+            >
+            <span class="duration"><i class="far fa-clock"></i> 3.5 Hours</span>
+            <span class="videos"
+              ><i class="fas fa-play-circle"></i> 11 Videos</span
+            >
+            <span class="rating"><i class="fas fa-star"></i> 4.8/5</span>
+          </div>
+          <div class="button-group">
+            <button class="enroll-btn">Start Learning</button>
+            <button class="unenroll-btn">Unenroll</button>
+          </div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress"></div>
+          </div>
+          <span class="progress-text">0% Complete</span>
+        </div>
+      </header>
+
+      <main class="course-content">
+        <div class="content-grid">
+          <!-- Video Player Section -->
+          <section class="video-section">
+            <div class="video-container">
+              <div id="player"></div>
+            </div>
+            <div class="video-info">
+              <h2 class="current-video-title">
+                Introduction to Web Development
+              </h2>
+              <div class="video-meta">
+                <span class="views"><i class="fas fa-eye"></i> 486k views</span>
+                <span class="duration"><i class="far fa-clock"></i> 4:27</span>
+                <button id="toggleCaptions" class="caption-btn">
+                  <i class="fas fa-closed-captioning"></i> Toggle Subtitles
+                </button>
+              </div>
+            </div>
+            <div class="ai-summary">
+              <h3>Video Summary</h3>
+              <p id="video-summary">Loading summary...</p>
+            </div>
+          </section>
+
+          <!-- Video List Section -->
+          <section class="video-list">
+            <h3>
+              Course Content <span class="total-duration">(3.5 Hours)</span>
+            </h3>
+            <div class="video-items" id="videoList">
+              <!-- Video items will be populated by JavaScript -->
+            </div>
+          </section>
+
+          <!-- Notes and Tools Section -->
+          <section class="notes-section">
+            <div class="notes-container">
+              <h3>My Notes</h3>
+              <p class="current-notes-title">
+                Notes for: Introduction to Web Development
+              </p>
+              <textarea
+                id="userNotes"
+                placeholder="Take notes while watching the videos..."
+              ></textarea>
+              <button id="saveNotes" class="save-btn">Save Notes</button>
+            </div>
+            <div class="quiz-container">
+              <h3>Knowledge Check</h3>
+              <div id="quizQuestions">
+                <!-- Quiz questions will be populated by JavaScript -->
+              </div>
+            </div>
+          </section>
+
+          <!-- Job-Seeker Tips Section -->
+          <section class="job-tips">
+            <h3>Career Opportunities</h3>
+            <div class="job-description">
+              <ul>
+                <li><i class="fas fa-briefcase"></i> Frontend Developer</li>
+                <li><i class="fas fa-briefcase"></i> Web Designer</li>
+                <li><i class="fas fa-briefcase"></i> UI Developer</li>
+                <li><i class="fas fa-briefcase"></i> HTML/CSS Specialist</li>
+                <li><i class="fas fa-briefcase"></i> Junior Web Developer</li>
+              </ul>
+            </div>
+            <p class="job-tip">
+              <i class="fas fa-info-circle"></i>
+              These roles typically require knowledge of HTML, CSS, and basic
+              JavaScript.
+            </p>
+          </section>
+
+          <!-- Progress Stats Section -->
+          <section class="progress-stats">
+            <div>Videos Completed: <span id="completedCount">0/11</span></div>
+            <div>Time Remaining: <span id="timeRemaining">3.5 hours</span></div>
+          </section>
+
+          <!-- Certificate Section -->
+          <section class="certificate-section">
+            <h3>Course Certificate</h3>
+            <p class="certificate-info">
+              Complete all videos to unlock your certificate of completion.
+            </p>
+            <div class="certificate-progress">
+              <div class="cert-progress-bar">
+                <div class="cert-progress"></div>
+              </div>
+              <p class="cert-progress-text">
+                Course Progress: <span id="certProgressText">0%</span>
+              </p>
+            </div>
+            <button id="downloadCertificate" class="cert-btn" disabled>
+              <i class="fas fa-certificate"></i> Download Certificate
+            </button>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- YouTube API Script -->
+    <script>
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      tag.onerror = function () {
+        console.error("Failed to load YouTube API");
+        document.querySelector(".video-container").innerHTML =
+          '<div style="text-align: center; padding: 2rem;">Failed to load video player. Please check your internet connection and refresh the page.</div>';
+      };
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
